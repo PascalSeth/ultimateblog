@@ -12,12 +12,12 @@ export default function RegistrationPage() {
     idNumber: "",
   });
 
-  const handleInputChange = (e:any) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission logic
     console.log("Form Data:", formData);
@@ -118,7 +118,7 @@ export default function RegistrationPage() {
               <option value="">- Select -</option>
               <option value="National ID">National ID</option>
               <option value="Passport">Passport</option>
-              <option value="Driver's License">Driver's License</option>
+              <option value="Driver&apos;s License">Driver&apos;s License</option>
             </select>
           </div>
           <div>

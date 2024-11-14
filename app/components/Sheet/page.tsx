@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenuIcon } from "@radix-ui/react-icons";
 import { DollarSign, File, Headphones, HomeIcon, Menu, Phone } from "lucide-react";
+import { ReactNode } from "react";
 
 export function SideNav() {
   return (
@@ -27,7 +28,13 @@ export function SideNav() {
   );
 }
 
-function NavItem({ href, icon, label }:any) {
+interface NavItemProps {
+  href: string;
+  icon: ReactNode;
+  label: string;
+}
+
+function NavItem({ href, icon, label }: NavItemProps) {
   return (
     <Link href={href} passHref>
       <div className="flex items-center space-x-3 text-gray-700 hover:bg-blue-100 p-4 rounded-lg cursor-pointer">

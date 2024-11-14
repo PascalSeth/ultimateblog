@@ -1,11 +1,11 @@
-import { Menu, Wallet, Wifi } from 'lucide-react';
+import {  Wallet, Wifi } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import { SideNav } from '../Sheet/page';
 
-type Props = {}
 
-function Navbar({}: Props) {
+
+function Navbar() {
   return (
     <div>
       <nav className="fixed flex items-center justify-between z-50 top-0 right-0 left-0 w-full p-6 bg-white shadow-md">
