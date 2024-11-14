@@ -1,10 +1,19 @@
+'use client'
 import Link from "next/link";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenuIcon } from "@radix-ui/react-icons";
 import { DollarSign, File, Headphones, HomeIcon, Menu, Phone } from "lucide-react";
-import { ReactNode } from "react";
 
-export function SideNav() {
+export default function SideNav() {
+  const navItems = [
+    { href: "/", icon: <HomeIcon />, label: "Dashboard" },
+    { href: "/buy-data", icon: <DollarSign />, label: "Buy Data" },
+    { href: "/transactions", icon: <File />, label: "Transactions" },
+    { href: "/package-registrations", icon: <DropdownMenuIcon />, label: "Afa Registrations" },
+    { href: "/chat-us-live", icon: <Headphones />, label: "Chat Us Live" },
+    { href: "/whatsapp-channel", icon: <Phone />, label: "Join Our WhatsApp Channel" },
+  ];
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -16,31 +25,16 @@ export function SideNav() {
           <SheetTitle className="mt-2 text-lg font-semibold">GeoNet</SheetTitle>
         </SheetHeader>
         <div className="mt-4 space-y-3">
-          <NavItem href="/" icon={<HomeIcon />} label="Dashboard" />
-          <NavItem href="/buy-data" icon={<DollarSign />} label="Buy Data" />
-          <NavItem href="/transactions" icon={<File />} label="Transactions" />
-          <NavItem href="/package-registrations" icon={<DropdownMenuIcon />} label="Afa Registrations" />
-          <NavItem href="/chat-us-live" icon={<Headphones />} label="Chat Us Live" />
-          <NavItem href="/whatsapp-channel" icon={<Phone />} label="Join Our WhatsApp Channel" />
+          {navItems.map(({ href, icon, label }) => (
+            <Link key={href} href={href} passHref>
+              <div className="flex items-center space-x-3 text-gray-700 hover:bg-blue-100 p-4 rounded-lg cursor-pointer">
+                <span className="text-lg">{icon}</span>
+                <span className="text-sm">{label}</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </SheetContent>
     </Sheet>
-  );
-}
-
-interface NavItemProps {
-  href: string;
-  icon: ReactNode;
-  label: string;
-}
-
-function NavItem({ href, icon, label }: NavItemProps) {
-  return (
-    <Link href={href} passHref>
-      <div className="flex items-center space-x-3 text-gray-700 hover:bg-blue-100 p-4 rounded-lg cursor-pointer">
-        <span className="text-lg">{icon}</span>
-        <span className="text-sm">{label}</span>
-      </div>
-    </Link>
   );
 }

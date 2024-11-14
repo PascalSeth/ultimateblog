@@ -1,7 +1,8 @@
+'use client'
 import {  Wallet, Wifi } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-import { SideNav } from '../Sheet/page';
+import SideNav from '../Sheet/page';
 
 
 
